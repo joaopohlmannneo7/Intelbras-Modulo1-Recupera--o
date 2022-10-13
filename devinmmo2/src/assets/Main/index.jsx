@@ -57,7 +57,7 @@ export const BarraDeTarefas = () =>{
             <h2>{item.title}</h2>
                <img src={item.thumbnail}/>
                <p>{item.short_description}</p>
-               <a href="/games" className="button">{item.id}</a>
+               <a href={`/games/${item.id}`} className="button">Ver mais</a>
             </Button>
          
             
@@ -85,7 +85,7 @@ export const BarraDeTarefas = () =>{
 background:white;
 color: black;
 position: relative;
-left: 250px;
+left: 150px;
 margin: 30px;
 width: 1700px;
 height:200px;
@@ -157,34 +157,48 @@ flex-grow: 1;
 
 `
 export const Button = styled.div`
-
+border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
   border: 1px solid rgba(0, 0, 0, 0.8);
   margin: 500px 0px 500px 20px;
-    background-color: red;
+    background-color: white;
     width: 560px;
     gap: 30px;
     height: 550px;
   font-size: 20px;
-
+  position: relative;
+left:120px;
 
   img{
     width: 400px;
+
     position: absolute;
     left: 80px;
-   
+   top: 20px;
 
   }
 p{
 display: flex;
 position: relative;
-font-size: 19px;
-top: 300px;
+font-size: 15px;
+top: 260px;
 left: 10px;
     
 }
 h2{
     position: relative;
-    top: 300px;
+    top: 260px;
     left:20px;
+}
+a{
+  position: absolute;
+  top: 470px;
+  left: 240px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  background: white;
+  text-decoration: none;
+  color:black
 }
 `
