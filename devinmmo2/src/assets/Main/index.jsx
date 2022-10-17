@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import GameCard from "../Card/gameCard";
 
 
 export const BarraDeTarefas = () =>{
@@ -33,9 +34,7 @@ export const BarraDeTarefas = () =>{
             <form onSubmit={e => e.preventDefault()}>
             <h3>Busque o seu jogo</h3>
             <input  onChange={(e) => setSearch(e.target.value)} type="text" id="txtBusca" data-search placeholder="Buscar pelo nome do jogo"/>
-            <button>
-         
-                </button>
+           
             
         </form> 
        
@@ -46,26 +45,7 @@ export const BarraDeTarefas = () =>{
         filter((item) =>{
         return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search)
       })
-      .map((item)=>{
-      return(
-    <C>
-        
-   
-       
-            <Button>
-           
-            <h2>{item.title}</h2>
-               <img src={item.thumbnail}/>
-               <p>{item.short_description}</p>
-               <a href={`/games/${item.id}`} className="button">Ver mais</a>
-            </Button>
-         
-            
-          
-        
-        </C>
-      )
-     })}
+      .map((item)=><GameCard key={item.id} item={item}/>)}
     
     </div>
 </div>
@@ -85,7 +65,7 @@ export const BarraDeTarefas = () =>{
 background:white;
 color: black;
 position: relative;
-left: 150px;
+left: 100px;
 margin: 30px;
 width: 1700px;
 height:200px;

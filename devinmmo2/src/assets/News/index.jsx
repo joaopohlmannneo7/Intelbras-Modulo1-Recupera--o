@@ -28,9 +28,7 @@ fetch('https://mmo-games.p.rapidapi.com/latestnews', options)
 <form onSubmit={e => e.preventDefault()}>
 <h3>Busque a sua notícia</h3>
 <input  onChange={(e) => setSearch(e.target.value)} type="text" id="txtBusca" data-search placeholder="Buscar pelo nome do jogo"/>
-<button>
 
-    </button>
 
 </form> 
 

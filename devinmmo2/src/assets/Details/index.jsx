@@ -1,45 +1,181 @@
 import { useState } from "react";
- export const Details = () =>{
-    const[search, setSearch] = useState('');
-    const [games, setGames] = useState([])
-  
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '2deb384b73msh2e19b7e734d003ep1f3daajsn31b111271b13',
-        'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com'
-      }
-    };
-  
-    fetch('https://mmo-games.p.rapidapi.com/games', options)
-  .then(response => response.json())
-  .then(data=> {
-   setGames(data)
-   .catch(err => console.error(err))
-     })
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import GameCard from "../Card/gameCard";
+import {gameOptions } from "../Main/fetch";
+import styled from "styled-components";
+import { Slider } from "../slides";
 
-     const handleClick = () =>{
-        if(games){
-            const searchedGames = games.filter((item)=>{
-                return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search)
-                
-            })
-            setSearch('')
-            setGames(searchedGames)
-        }
-     }
-     return(
-      <div>
-        {games.map((item)=>{
-            return(
-                <div>
-                    
-            <h2>{item.title}</h2>
-               <img src={item.thumbnail}/>
-               <p>{item.short_description}</p>
-                </div>
-            )
-        })}
-      </div>
-     )
+export const Game = () => {
+  const {id } = useParams();
+  const [item, setGame] = useState(null);
+ 
+  const getGame = async (url) => {
+    const res = await fetch(url, gameOptions);
+    const data = await res.json();
+    console.log(data);
+    setGame(data);
+  };
+  useEffect(() => {
+    
+    const gameUrl = `https://mmo-games.p.rapidapi.com/game?id=${id}`;
+    console.log(gameUrl)
+    getGame(gameUrl)
+  }, []);
+
+  return (
+    <div>
+      {item && (
+        <>
+      
+      <Box3>
+      <h1 id="tel">{item.title}</h1>
+       <h1 id="rel">({item.release_date})</h1>
+       
+      </Box3>
+        <Slider item={item}/>
+       <Box4>
+        <div>
+          <h2 id="title1">Gênero</h2>
+          <p id="gen">{item.genre}</p>
+        </div>
+        <div>
+          <h2 id="title2">Plataforma</h2>
+          <p id="plat">{item.platform}</p>
+        </div>
+       <div>
+        <h2 id="til">Descrição</h2>
+            <p id="desc">{item.description}</p>
+          </div>
+       </Box4>
+        
+       <Box2>
+       <h4 id="title">Sistema Operacional</h4>
+        <p  id="content">{Object.values(item.minimum_system_requirements.os)}</p>
+       <h4 id="title">Gráficos</h4>
+         <p id="content">{Object.values(item.minimum_system_requirements.graphics)}</p>
+         <h4 id="title">Memória</h4>
+        <p  id="content">{Object.values(item.minimum_system_requirements.memory)}</p>
+        <h4 id="title">Processador</h4>
+        <p  id="content">{Object.values(item.minimum_system_requirements.processor)}</p>
+        <h4 id="title">Espaço em disco</h4>
+        <p  id="content">{Object.values(item.minimum_system_requirements.storage)}</p>
+        
+       </Box2>
+      
+        
+        </>
+      )}
+    </div>
+  );
+};
+
+  export const Box = styled.div`
+   max-width: 1000px;
+  position: relative;
+  margin: auto;
+
+  img{
+    display: flex;
+    position: relative;
+    left: -50px;
+    width: 1000px;
+  }
+
+  .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
+
+/* On hover, add a grey background color */
+.prev:hover,
+ .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+  
+
+  `
+  export const Box2 = styled.div`
+  
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  margin: 50px 0px 500px 20px;
+    background-color:  #c2c0c0;
+    width: 1770px;
+    gap: 30px;
+    height: 530px;
+  font-size: 20px;
+  position: relative;
+  top:-200px;
+  left:50px;
+
+  #content{
+    position: relative;
+    left: 200px;
+    top: -49px;
+  }
+  #title{
+    position: relative;
+    left: 9px;
+  }
+ 
+  `
+  export const Box3 = styled.div`
+  
+  #rel{
+    font-size: 50px;
+    position: relative;
+    left: 350px;
+    top: -90px;
+  }
+
+  #tel{
+    font-size: 50px;
+    position: relative;
+    left: 60px;
+  }
+  
+
+  
+  
+  `
+  export const Box4 = styled.div`
+  
+   
+  #desc{
+    position: relative;
+    top: -260px;
+    font-size: 20px;
+    margin: 30px;
+  }
+  #til{
+    position: relative;
+    top: -280px;
+    left:40px;
+  }
+  #title1{
+    position: relative;
+    top: -251px;
+    left: 40px;
+  }
+  #title2{
+    position: relative;
+    top: -340.5px;
+    left: 220px;
+  }
+  #gen{
+ position: relative;
+  top: -249px;
+  left: 40px;
+  font-size: 20px;
+  }
+  #plat{
+    position: relative;
+    top: -337.5px;
+    left: 220px;
+    font-size: 20px;
+  }
+  
+  `
