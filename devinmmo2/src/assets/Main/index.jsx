@@ -150,7 +150,7 @@ border-radius: 5px;
 left:120px;
 
   img{
-    width: 400px;
+    width: 370px;
 
     position: absolute;
     left: 80px;

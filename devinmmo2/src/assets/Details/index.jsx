@@ -5,7 +5,7 @@ import GameCard from "../Card/gameCard";
 import {gameOptions } from "../Main/fetch";
 import styled from "styled-components";
 import { Slider } from "../slides";
-
+import SistOp from "../System";
 export const Game = () => {
   const {id } = useParams();
   const [item, setGame] = useState(null);
@@ -29,8 +29,8 @@ export const Game = () => {
         <>
       
       <Box3>
-      <h1 id="tel">{item.title}</h1>
-       <h1 id="rel">({item.release_date})</h1>
+      <h1 id="tel">{item.title} ({item.release_date})</h1>
+      
        
       </Box3>
         <Slider item={item}/>
@@ -45,22 +45,14 @@ export const Game = () => {
         </div>
        <div>
         <h2 id="til">Descrição</h2>
-            <p id="desc">{item.description}</p>
+            <p id="desc"  dangerouslySetInnerHTML={{__html: item.description}}></p>
           </div>
        </Box4>
         
        <Box2>
        <h4 id="title">Sistema Operacional</h4>
-        <p  id="content">{Object.values(item.minimum_system_requirements.os)}</p>
-       <h4 id="title">Gráficos</h4>
-         <p id="content">{Object.values(item.minimum_system_requirements.graphics)}</p>
-         <h4 id="title">Memória</h4>
-        <p  id="content">{Object.values(item.minimum_system_requirements.memory)}</p>
-        <h4 id="title">Processador</h4>
-        <p  id="content">{Object.values(item.minimum_system_requirements.processor)}</p>
-        <h4 id="title">Espaço em disco</h4>
-        <p  id="content">{Object.values(item.minimum_system_requirements.storage)}</p>
-        
+      
+          <SistOp item={item}/>
        </Box2>
       
         
@@ -123,18 +115,21 @@ export const Game = () => {
  
   `
   export const Box3 = styled.div`
-  
+  margin-top: 210px;
+  margin-bottom: 20px;
   #rel{
     font-size: 50px;
-    position: relative;
-    left: 350px;
-    top: -90px;
+    position: absolute;
+    left: 850px;
+    top: 90px;
   }
 
   #tel{
     font-size: 50px;
-    position: relative;
-    left: 60px;
+    position: absolute;
+    left: 200px;
+    top: 70px;
+    
   }
   
 
