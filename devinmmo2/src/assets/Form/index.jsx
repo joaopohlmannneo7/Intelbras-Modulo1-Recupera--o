@@ -120,7 +120,6 @@ export const Box = styled.div`
 
   
   margin: 0px 0px 0px 20px;
-    background-color: white;
     width: 560px;
     gap: 30px;
     height: 550px;
@@ -140,6 +139,7 @@ top: -650px;
   border-radius: 4px;
   position: relative;
   left: 50px;
+  margin-top: 20px;
   
 }
 
@@ -154,7 +154,7 @@ top: -650px;
   border: 2px solid #808080;
   border-radius: 4px;
   position: relative;
-  top: -46px;
+  top: -33px;
   left: 388px;
 }
 #comment{

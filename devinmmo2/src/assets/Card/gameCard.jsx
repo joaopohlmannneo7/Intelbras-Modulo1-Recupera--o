@@ -59,9 +59,9 @@ flex-grow: 1;
 export const Button = styled.div`
 border-radius: 5px;
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid ${({ theme }) => theme.border};
   margin: 520px 0px 500px 20px;
-    background-color: white;
+    background-color: ${({ theme }) => theme.background};
     width: 560px;
     gap: 30px;
     height: 550px;
@@ -83,12 +83,14 @@ position: relative;
 font-size: 15px;
 top: 260px;
 left: 10px;
+color: ${({ theme }) => theme.text};
     
 }
 h2{
     position: relative;
     top: 260px;
     left:20px;
+    color: ${({ theme }) => theme.text};
 }
 a{
   position: absolute;
@@ -96,14 +98,14 @@ a{
   left: 240px;
   border-radius: 5px;
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  background: white;
+  border: 1px solid ${({ theme }) => theme.border};
+  background:  ${({ theme }) => theme.background};
   text-decoration: none;
-  color:black
+  color: ${({ theme }) => theme.text};
 }
 #sla{
-  color: blue;
-  border-color: blue;
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.border};
   position: absolute;
   top: 507px;
   left: 400px ;

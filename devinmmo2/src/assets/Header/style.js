@@ -3,7 +3,7 @@ export const Container = styled.div`
 
 width: 104%;
 height: 80px;
-background: #808080;
+background: ${({ theme }) => theme.background};
 position: relative;
 top: -10px;
 left: -9px;
@@ -19,7 +19,7 @@ export const Nav = styled.div`
     
     h1{
         font: 1rem;
-        color: black;
+        color: ${({ theme }) => theme.text};
     }
 
 

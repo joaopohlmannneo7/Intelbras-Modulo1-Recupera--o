@@ -46,7 +46,7 @@ export function Slider({item}){
 export const Box = styled.div`
 
 position: relative;
-top: -200px;
+top: -220px;
 height: 100vh;
 display: flex;
 justify-content: center;

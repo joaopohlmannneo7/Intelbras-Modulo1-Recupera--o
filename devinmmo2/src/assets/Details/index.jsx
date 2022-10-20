@@ -106,7 +106,7 @@ export const Game = () => {
   #content{
     position: relative;
     left: 200px;
-    top: -49px;
+    top: -23px;
   }
   #title{
     position: relative;
@@ -157,7 +157,7 @@ export const Game = () => {
   }
   #title2{
     position: relative;
-    top: -340.5px;
+    top: -300.5px;
     left: 220px;
   }
   #gen{
@@ -168,7 +168,7 @@ export const Game = () => {
   }
   #plat{
     position: relative;
-    top: -337.5px;
+    top: -300.5px;
     left: 220px;
     font-size: 20px;
   }

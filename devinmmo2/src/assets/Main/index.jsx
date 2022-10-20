@@ -62,8 +62,8 @@ export const BarraDeTarefas = () =>{
  
   display: inline-flex;
   transition: all 0.3s ease-out;
-background:white;
-color: black;
+background:${({ theme }) => theme.background};
+color: ${({ theme }) => theme.text};
 position: relative;
 left: 100px;
 margin: 30px;
@@ -85,7 +85,7 @@ height:200px;
     position: relative;
     top: 30px;
     left: 120px;
-    color:black;
+    color:${({ theme }) => theme.text};
   }
   hr{
     width: 1500px;
@@ -139,9 +139,9 @@ flex-grow: 1;
 export const Button = styled.div`
 border-radius: 5px;
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border:  1px solid ${({ theme }) => theme.border};
   margin: 500px 0px 500px 20px;
-    background-color: white;
+    background-color:  ${({ theme }) => theme.background};
     width: 560px;
     gap: 30px;
     height: 550px;
@@ -154,7 +154,7 @@ left:120px;
 
     position: absolute;
     left: 80px;
-   top: 20px;
+   top: 6px;
 
   }
 p{
@@ -163,12 +163,16 @@ position: relative;
 font-size: 15px;
 top: 260px;
 left: 10px;
+top: 300px;
+color:${({ theme }) => theme.text};
     
 }
 h2{
     position: relative;
     top: 260px;
     left:20px;
+    top: 280px;
+    color:${({ theme }) => theme.text};
 }
 a{
   position: absolute;
@@ -176,9 +180,9 @@ a{
   left: 240px;
   border-radius: 5px;
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  background: white;
+  border: 1px solid${({ theme }) => theme.border};
+  background: ${({ theme }) => theme.background};
   text-decoration: none;
-  color:black
+  color:${({ theme }) => theme.text};
 }
 `
