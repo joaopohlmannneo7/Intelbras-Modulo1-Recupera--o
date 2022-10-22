@@ -10,7 +10,8 @@ export const Header = (e) => {
         <Container>
             <Nav>
                 <h1>DEVinMMO</h1>
-                <Link id="ok" to={"/news"} style={{ textDecoration: 'none', color: 'black' }}>Notícias</Link>
+                <Link id="ok" to={"/news"}><h2>Notícias</h2></Link>
+                <Link id="ok" to={"*"}><h2>Jogos</h2></Link>
                 <Button onClick={switchTheme}>Dark Mode</Button>
             </Nav>
         </Container>

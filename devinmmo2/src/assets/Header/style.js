@@ -21,7 +21,10 @@ export const Nav = styled.div`
         font: 1rem;
         color: ${({ theme }) => theme.text};
     }
-
+    h2{
+        font: 1rem;
+        color: ${({ theme }) => theme.text};
+    }
 
 `
 

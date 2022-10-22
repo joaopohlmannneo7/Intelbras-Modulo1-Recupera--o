@@ -139,6 +139,7 @@ top: -650px;
   border-radius: 4px;
   position: relative;
   left: 50px;
+  top: -3px;
   margin-top: 20px;
   
 }
@@ -153,8 +154,8 @@ top: -650px;
   background-color: #fff;
   border: 2px solid #808080;
   border-radius: 4px;
-  position: relative;
-  top: -33px;
+  position: absolute;
+  top: 50px;
   left: 388px;
 }
 #comment{
@@ -219,14 +220,15 @@ button:active {
 }
 
 .error{
-  position: absolute;
-  top: 152px;
+  position: relative;
+  top: 25px;
   left: 50px;
   color: red;
 }
 .error2{
   position: relative;
   left: 390px;
+  top: -0px;
   color: red;
 }
 `

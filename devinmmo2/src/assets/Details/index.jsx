@@ -105,7 +105,7 @@ export const Game = () => {
 
   #content{
     position: relative;
-    left: 200px;
+    left: 220px;
     top: -23px;
   }
   #title{

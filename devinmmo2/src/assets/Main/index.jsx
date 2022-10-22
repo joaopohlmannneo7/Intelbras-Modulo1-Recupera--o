@@ -170,9 +170,10 @@ color:${({ theme }) => theme.text};
 h2{
     position: relative;
     top: 260px;
-    left:20px;
+    left:12px;
     top: 280px;
     color:${({ theme }) => theme.text};
+    font-size: 21px;
 }
 a{
   position: absolute;

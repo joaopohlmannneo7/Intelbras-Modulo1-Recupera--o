@@ -15,6 +15,7 @@ body{
     /* font-size: 14px; */
     color: #333;
     transition: all 1s;
+    font-family: 'Montserrat', sans-serif;
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
     
 
