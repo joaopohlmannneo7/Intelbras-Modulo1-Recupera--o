@@ -1,7 +1,6 @@
 import { useState } from "react";
+import NewsCard from "../Card/newsCard";
 import { BarraDeTarefas2 } from "../Main";
-import { C } from "../Main";
-import { Button } from "../Main";
 export const News = () =>{
     const[search, setSearch] = useState('');
   const [news, setNews] = useState([])
@@ -36,26 +35,7 @@ fetch('https://mmo-games.p.rapidapi.com/latestnews', options)
 <div>
     {news.filter((item)=>{
           return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search)
-    }).map((item)=>{
-        return(
-      <C>
-          
-     
-         
-              <Button>
-             
-              <h2>{item.title}</h2>
-                 <img src={item.thumbnail}/>
-                 <p>{item.short_description}</p>
-                 <a href={item.article_url} className="button">Ver no site</a>
-              </Button>
-           
-              
-            
-          
-          </C>
-        )
-       })}
+    }).map((item)=> <NewsCard  item={item}/>)}
       
       </div>
 
