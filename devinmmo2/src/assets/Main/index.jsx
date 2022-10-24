@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
 import GameCard from "../Card/gameCard";
 
 
